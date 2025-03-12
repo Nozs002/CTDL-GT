@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+
+bool sx(pair<int, int> a, pair<int, int> b){
+	return a.first < b.first;
+}
+
+void sapxep(vector<pair<int,int>> &mp){
+	stable_sort(mp.begin(), mp.end(), sx);
+}
+
+int main(){
+	int t; cin >> t;
+	while(t--){
+		int n, k;
+		vector<pair<int, int>> mp;
+		cin >> n >> k;
+		int x;
+		for(int i=0;i<n;i++){
+			cin >> x;
+			mp.push_back({abs(x-k), x});
+		}
+		sapxep(mp);
+		for(auto i:mp) cout << i.second << " ";
+		cout << endl;
+	}
+}
